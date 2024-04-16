@@ -66,7 +66,7 @@ func main() {
    
    concquadrado = conc * conc
    
-   fmt.Println(conc, concquadrado)
+    fmt.Printf("%v, %v\n", conc, concquadrado)
 }
 
 Questão 04
