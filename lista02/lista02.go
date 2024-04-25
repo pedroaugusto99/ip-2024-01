@@ -40,7 +40,11 @@ func main() {
         case (nf < 6) && (p < 0.75):
        fmt.Printf("Matricula: %v, Nota Final: %.2f, Situação Final: REPROVADO POR NOTA E POR FREEQUENCIA",m,nf)
     }
-         
+
+
+
+
+	
   Questão 02
 
 package main
@@ -67,7 +71,10 @@ func main() {
 
   fmt.Printf("ANOS = %d\n", anos)
 }
-         
+
+
+
+	
 Questão 03
 
 package main
@@ -87,6 +94,11 @@ func main() {
   fmt.Printf("%d! = %d\n", n, fatorial)
 }
 
+
+
+
+
+	
 Questão 04
 
 package main
@@ -156,6 +168,125 @@ func main() {
   fmt.Printf("%.2f / %.2f = %.2f\n", n, i, div2)
 }
 
+
+
+
+	
+Questão 05
+
+package main
+
+import (
+	"fmt"
+)
+
+// Função para calcular o comprimento do segmento crescente máximo
+func maxCrescendoSegment(numbers []int) int {
+	if len(numbers) == 0 {
+		return 0
+	}
+
+	maxLength := 0
+	currentLength := 0
+
+	// Iterar pela sequência para encontrar o segmento crescente mais longo
+	for i := 1; i < len(numbers); i++ {
+		if numbers[i] > numbers[i-1] {
+			// Se a sequência continua crescendo, aumente o comprimento atual
+			currentLength++
+		} else {
+			// Se a sequência quebra a ordem crescente, reinicia o comprimento atual
+			if currentLength > maxLength {
+				maxLength = currentLength
+			}
+			currentLength = 0 // reiniciar
+		}
+	}
+
+	// Verifique o segmento atual após o loop
+	if currentLength > maxLength {
+		maxLength = currentLength
+	}
+
+	return maxLength
+}
+
+func main() {
+	var n int
+	fmt.Scan(&n) // Ler o número de elementos na sequência
+
+	numbers := make([]int, n)
+	for i := 0; i < n; i++ {
+		fmt.Scan(&numbers[i]) // Ler a sequência de números
+	}
+
+	maxSegmentLength := maxCrescendoSegment(numbers)
+
+	fmt.Printf("O comprimento do segmento crescente maximo e: %d\n", maxSegmentLength)
+}
+
+
+
+
+	
+Questão 06
+
+package main
+
+import (
+	"fmt"
+)
+
+// Função para encontrar a maior subsequência de elementos iguais consecutivos
+func maxConsecutiveEqualElements(numbers []int) int {
+	if len(numbers) == 0 {
+		return 0
+	}
+
+	maxLength := 1
+	currentLength := 1
+
+	// Percorre a sequência de números
+	for i := 1; i < len(numbers); i++ {
+		if numbers[i] == numbers[i-1] {
+			// Se o número atual é igual ao anterior, aumente a contagem atual
+			currentLength++
+		} else {
+			// Se a sequência é interrompida, compare com a máxima encontrada
+			if currentLength > maxLength {
+				maxLength = currentLength
+			}
+			currentLength = 1 // reiniciar a contagem
+		}
+	}
+
+	// Verifique se a última subsequência é a mais longa
+	if currentLength > maxLength {
+		maxLength = currentLength
+	}
+
+	return maxLength
+}
+
+func main() {
+	var n int
+	fmt.Scan(&n) // Ler o número de elementos na sequência
+
+	numbers := make([]int, n)
+	for i := 0; i < n; i++ {
+		fmt.Scan(&numbers[i]) // Ler a sequência de números
+	}
+
+	maxSubsequence := maxConsecutiveEqualElements(numbers)
+
+	fmt.Printf("A maior subsequência de elementos iguais possui %d elementos.\n", maxSubsequence)
+}
+
+
+
+
+	
+	
 Questão 07
 
 package main
@@ -201,6 +332,10 @@ func main() {
     fmt.Printf("MEDIA IMPAR = %.2f\n", mediaimpar)
 }
 
+
+
+
+	
 Questão 08
 
 package main
@@ -229,6 +364,10 @@ func main() {
   }
 }
 
+
+
+
+	
   Questão 09
 
   package main
@@ -254,6 +393,11 @@ func main(){
     fmt.Println("PRIMO")
     }
 }
+
+
+
+	
+
 
 Questão 10
 
@@ -288,6 +432,10 @@ func main(){
 }
 
 
+
+
+
+	
 Questão 11
 
 package main
@@ -326,6 +474,10 @@ func main() {
   }
 }
 
+
+
+
+	
 Questão 12
 
 package main
@@ -389,6 +541,9 @@ func main() {
 }
 
 
+
+
+	
  Questão 13
 
   package main
@@ -405,6 +560,12 @@ func main() {
 }
 
 
+
+
+
+
+
+	
 Questão 14
 
 package main
@@ -436,6 +597,168 @@ func main() {
     }
   }
 }
+
+
+
+
+
+	
+Questão 15
+
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+// Função para inverter um número inteiro
+func reverseInt(num int) int {
+	str := strconv.Itoa(num) // Converte o número para string
+	revStr := ""
+	for i := len(str) - 1; i >= 0; i-- {
+		revStr += string(str[i]) // Inverte a string
+	}
+	revInt, _ := strconv.Atoi(revStr) // Converte a string invertida de volta para inteiro
+	return revInt
+}
+
+func main() {
+	var T int
+	fmt.Scan(&T) // Ler o número de casos de teste
+
+	for i := 0; i < T; i++ {
+		var A, B int
+		fmt.Scan(&A, &B) // Ler os dois números de três dígitos
+
+		revA := reverseInt(A) // Inverter A
+		revB := reverseInt(B) // Inverter B
+
+		if revA > revB {
+			fmt.Println(revA) // Se revA for maior, imprime revA
+		} else {
+			fmt.Println(revB) // Se revB for maior, imprime revB
+		}
+	}
+}
+
+
+
+
+	
+Questão 16
+
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+type Cateto struct {
+	a, b int
+}
+
+// Encontrar pares de catetos para uma dada hipotenusa
+func encontrarCatetos(hip int) []Cateto {
+	hip2 := hip * hip
+	catetos := []Cateto{}
+	for a := 1; a < hip; a++ { // a deve ser menor que a hipotenusa
+		for b := a; b < hip; b++ { // b deve ser maior ou igual a a, mas menor que a hipotenusa
+			if a*a+b*b == hip2 { // Teste do Teorema de Pitágoras
+				catetos = append(catetos, Cateto{a, b})
+			}
+		}
+	}
+	return catetos
+}
+
+func main() {
+	var n int
+	fmt.Scan(&n) // Ler o valor de n
+
+	for h := 1; h <= n; h++ { // Iterar sobre as hipotenusas de 1 a n
+		catetos := encontrarCatetos(h) // Encontrar catetos para uma hipotenusa
+		if len(catetos) > 0 { // Se existirem catetos válidos para esta hipotenusa
+			sort.Slice(catetos, func(i, j int) bool { // Ordenar por a, depois por b
+				return catetos[i].a < catetos[j].a
+			})
+			for _, c := range catetos { // Imprimir todos os pares de catetos
+				fmt.Printf("hipotenusa = %d, catetos %d e %d\n", h, c.a, c.b)
+			}
+		}
+	}
+}
+
+
+
+
+
+	
+Questão 17
+
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+func main() {
+	var (
+		lucroMenorQue10, lucroEntre10E20, lucroMaiorQue20 int
+		maiorLucro, totalCompras, totalVendas             float64
+		codigoMaiorLucro, codigoMaiorVendas               int
+	)
+
+	for {
+		var codigo, numVendas int
+		var precoCompra, precoVenda float64
+
+		_, err := fmt.Scan(&codigo, &precoCompra, &precoVenda, &numVendas)
+		if err != nil {
+			break
+		}
+
+		lucro := ((precoVenda - precoCompra) / precoCompra) * 100
+
+		switch {
+		case lucro < 10:
+			lucroMenorQue10++
+		case lucro <= 20:
+			lucroEntre10E20++
+		default:
+			lucroMaiorQue20++
+		}
+
+		if lucro > maiorLucro {
+			maiorLucro = lucro
+			codigoMaiorLucro = codigo
+		}
+
+		if numVendas > codigoMaiorVendas {
+			codigoMaiorVendas = numVendas
+		}
+
+		totalCompras += precoCompra * float64(numVendas)
+		totalVendas += precoVenda * float64(numVendas)
+	}
+
+	lucroTotal := totalVendas - totalCompras
+	lucroPercentualTotal := (lucroTotal / totalCompras) * 100
+
+	fmt.Printf("Quantidade de mercadorias que geraram lucro menor que 10%%: %d\n", lucroMenorQue10)
+	fmt.Printf("Quantidade de mercadorias que geraram lucro entre 10%% e 20%%: %d\n", lucroEntre10E20)
+	fmt.Printf("Quantidade de mercadorias que geraram lucro maior que 20%%: %d\n", lucroMaiorQue20)
+	fmt.Printf("Codigo da mercadoria que gerou maior lucro: %d\n", codigoMaiorLucro)
+	fmt.Printf("Codigo da mercadoria mais vendida: %d\n", codigoMaiorVendas)
+	fmt.Printf("Valor total de compras: %.2f, valor total de vendas: %.2f e percentual de lucro total: %.2f%%\n", totalCompras, totalVendas, lucroPercentualTotal)
+}
+
+
+
+
+	
 
 Questão 18
 
@@ -521,6 +844,10 @@ func main() {
   fmt.Printf("\nMMC de %d, %d e %d é: %d\n", a, b, c, mmc)
 }
 
+
+
+
+	
 Questão 19
 
 package main
@@ -559,6 +886,12 @@ func main() {
 }
 }
 
+
+
+
+
+
+	
 Questão 20
 
 package main
@@ -616,6 +949,66 @@ func main() {
 	fmt.Printf("%d = %s = %d (%s)\n", n, divisoresFormatados, somaDiv, mensagem)
 }
 
+
+
+
+
+	
+Questão 21
+	
+package main
+
+import (
+  "fmt"
+)
+
+func main() {
+  for {
+    // Ler o tamanho da próxima sequência
+    var n int
+    if _, err := fmt.Scan(&n); err != nil {
+      // Se erro ou EOF, terminar o loop
+      break
+    }
+
+    // Se o tamanho for zero, termina
+    if n == 0 {
+      break
+    }
+
+    // Ler a sequência de números
+    numbers := make([]float64, n)
+    for i := 0; i < n; i++ {
+      _, err := fmt.Scan(&numbers[i])
+      if err != nil {
+        break
+      }
+    }
+
+    // Verificar se está ordenada
+    isOrdered := true
+    for i := 0; i < len(numbers); i++ {
+      if numbers[i] >= numbers[i+1] {
+        isOrdered = false
+        break
+      }
+    }
+
+    // Imprimir a resposta conforme instruído
+    if isOrdered {
+      fmt.Println("ORDENADA")
+    } else  {
+      fmt.Println("DESORDENADA")
+    } 
+  }
+}
+
+
+
+
+
+
+	
 Questão 22
 
 package main
@@ -681,6 +1074,12 @@ func main() {
 }
 
 
+
+
+
+
+
+	
 Questão 23
 
 package main
@@ -737,6 +1136,12 @@ func main() {
 	}
 }
 
+
+
+	
+
+	
+
 Questão 24
 
 package main
@@ -778,6 +1183,11 @@ func main() {
 }
 
 
+
+
+
+
+	
 Questão 25
 
 package main
@@ -819,6 +1229,11 @@ func main() {
 }
 
 
+
+
+
+
+	
 Questão 26
 
 package main
@@ -860,6 +1275,10 @@ func main() {
 
 
 
+
+
+
+	
 Questão 27
 
 package main
