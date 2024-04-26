@@ -282,20 +282,21 @@ func main() {
 
 
 
-
-	
-	
 Questão 07
-
+		
 package main
 
 import "fmt"
 
 func main() {
     var num int
-    var par, somapar, impar, somaimpar float64
+    var Qtdpar, somapar, Qtdimpar, somaimpar float64
 
-    fmt.Println("Insira uma sequência de    números inteiros diferentes de zero (Use o 0 para encerrar):")
+    fmt.Println("Insira uma sequência de números inteiros diferentes de zero (Use o 0 para encerrar):")
+ 
+    Qtdpar = 0
+    Qtdimpar = 0
+ 
  
     for {
         fmt.Scan(&num)
@@ -307,23 +308,23 @@ func main() {
         if num%2 == 0{
             
             somapar = somapar + float64(num)
-            par++
+            Qtdpar++
             
         } else {
             
             somaimpar = somaimpar + float64(num)
-            impar++
+            Qtdimpar++
             }
              
     }
     
     var mediapar, mediaimpar float64
 
-    if par > 0 {
-    mediapar = somapar/ par
+    if Qtdpar > 0 {
+    mediapar = somapar/ Qtdpar
     }
-    if impar > 0 {
-    mediaimpar = somaimpar / impar
+    if Qtdimpar > 0 {
+    mediaimpar = somaimpar / Qtdimpar
     }
 
     fmt.Printf("MEDIA PAR = %.2f\n", mediapar)
