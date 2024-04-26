@@ -766,7 +766,7 @@ import (
 )
 
 // Função para verificar se um número é primo
-func isPrimo(n int) bool {
+func numprimo(n int) bool {
   if n <= 1 {
     return false
   }
@@ -781,7 +781,7 @@ func isPrimo(n int) bool {
 // Função para obter o próximo número primo após um dado número
 func proximoPrimo(n int) int {
   for i := n + 1; ; i++ {
-    if isPrimo(i) {
+    if numprimo(i) {
       return i
     }
   }
@@ -954,9 +954,8 @@ Questão 21
 	
 package main
 
-import (
-  "fmt"
-)
+import "fmt"
+
 
 func main() {
   for {
@@ -973,25 +972,25 @@ func main() {
     }
 
     // Ler a sequência de números
-    numbers := make([]float64, n)
+    num := make([]float64, n)
     for i := 0; i < n; i++ {
-      _, err := fmt.Scan(&numbers[i])
+      _, err := fmt.Scan(&num[i])
       if err != nil {
         break
       }
     }
 
     // Verificar se está ordenada
-    isOrdered := true
-    for i := 0; i < len(numbers); i++ {
-      if numbers[i] >= numbers[i+1] {
-        isOrdered = false
+    Ordenada := true
+    for i := 0; i < len(num); i++ {
+      if num[i] >= num[i+1] {
+        Ordenada = false
         break
       }
     }
 
     // Imprimir a resposta conforme instruído
-    if isOrdered {
+    if Ordenada {
       fmt.Println("ORDENADA")
     } else  {
       fmt.Println("DESORDENADA")
@@ -1218,10 +1217,10 @@ func main() {
 	fmt.Scan(&x, &n)
 
 	// Calcular e^x usando a série de Taylor até N termos
-	eulerValue := euler(x, n)
+	eulerVal := euler(x, n)
 
 	// Imprimir o resultado com formato especificado
-	fmt.Printf("e^%.2f = %.6f\n", x, eulerValue)
+	fmt.Printf("e^%.2f = %.6f\n", x, eulerVal)
 }
 
 
@@ -1284,7 +1283,7 @@ import (
 )
 
 // Função para verificar se um número é primo
-func isPrime(n int) bool {
+func numPrimo(n int) bool {
 	if n <= 1 {
 		return false
 	}
@@ -1297,32 +1296,32 @@ func isPrime(n int) bool {
 }
 
 // Função para fatorar um número em fatores primos
-func primeFactorization(n int) []int {
-	factors := []int{}
+func primoFatores(n int) []int {
+	fatores := []int{}
 	if n <= 1 {
-		return factors
+		return fatores
 	}
 
 	// Divisão por 2 até que não seja mais divisível
 	for n%2 == 0 {
-		factors = append(factors, 2)
+		fatores = append(fatores, 2)
 		n /= 2
 	}
 
 	// Testar todos os números ímpares de 3 até √n
 	for i := 3; i*i <= n; i += 2 {
 		if n%i == 0 {
-			factors = append(factors, i)
+			fatores = append(fatores, i)
 			n /= i
 		}
 	}
 
 	// Se sobrou algum número maior que 1, é um fator primo
 	if n > 1 {
-		factors = append(factors, n)
+		fatores = append(fatores, n)
 	}
 
-	return factors
+	return fatores
 }
 
 func main() {
@@ -1334,13 +1333,13 @@ func main() {
 		return
 	}
 
-	factors := primeFactorization(n)
+	fatore := primoFatores(n)
 
-	if len(factors) == 0 {
+	if len(fatores) == 0 {
 		fmt.Printf("Fatoracao nao e possivel para o numero %d!\n", n)
 	} else {
 		fmt.Printf("%d = ", n)
-		for i, factor := range factors {
+		for i, fatores := range fatores {
 			if i > 0 {
 				fmt.Print(" x ")
 			}
