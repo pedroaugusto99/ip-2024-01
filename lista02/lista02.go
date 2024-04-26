@@ -453,18 +453,18 @@ func main() {
 
   
   r := 1.0
-  iteracao := 0
+  i := 0
 
   
   for {
-    iteracao++
+    i++
     
     r = (r + n/r) / 2
      
     erro := math.Abs(n - r*r)
 
     
-    fmt.Printf("Iteração %d: Aproximação = %.9f, Erro = %.9f\n", iteracao, r, erro)
+    fmt.Printf("r = %.9f, Erro = %.9f\n", r, erro)
 
   
     if erro <= e {
