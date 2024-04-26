@@ -1,0 +1,56 @@
+Questão 20
+
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func encontrarDivisores(n int) []int {
+	var divisores []int
+	for i := 1; i <= n/2; i++ { // Divisores vão até n/2
+		if n%i == 0 {
+			divisores = append(divisores, i)
+		}
+	}
+	return divisores
+}
+
+func somaDivisores(divisores []int) int {
+	soma := 0
+	for _, divisor := range divisores {
+		soma += divisor
+	}
+	return soma
+}
+
+func main() {
+	
+	var n int
+	fmt.Scan(&n)
+
+	
+	divisores := encontrarDivisores(n)
+
+	
+	somaDiv := somaDivisores(divisores)
+
+	
+	var mensagem string
+	if somaDiv == n {
+		mensagem = "NUMERO PERFEITO"
+	} else {
+		mensagem = "NUMERO NAO E PERFEITO"
+	}
+
+	
+	divisoresStr := make([]string, len(divisores))
+	for i, divisor := range divisores {
+		divisoresStr[i] = fmt.Sprintf("%d", divisor)
+	}
+
+	divisoresFormatados := strings.Join(divisoresStr, " + ")
+
+	fmt.Printf("%d = %s = %d (%s)\n", n, divisoresFormatados, somaDiv, mensagem)
+}
