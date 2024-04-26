@@ -176,53 +176,51 @@ Questão 05
 
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-// Função para calcular o comprimento do segmento crescente máximo
-func maxCrescendoSegment(numbers []int) int {
-	if len(numbers) == 0 {
+
+func maxsegmento(num []int) int {
+	if len(num) == 0 {
 		return 0
 	}
 
-	maxLength := 0
-	currentLength := 0
+	maxComp := 0
+	comp := 0
 
-	// Iterar pela sequência para encontrar o segmento crescente mais longo
-	for i := 1; i < len(numbers); i++ {
-		if numbers[i] > numbers[i-1] {
-			// Se a sequência continua crescendo, aumente o comprimento atual
-			currentLength++
+	
+	for i := 1; i < len(num); i++ {
+		if num[i] > num[i-1] {
+			
+			comp++
 		} else {
-			// Se a sequência quebra a ordem crescente, reinicia o comprimento atual
-			if currentLength > maxLength {
-				maxLength = currentLength
+			
+			if comp > maxComp {
+				maxComp = comp
 			}
-			currentLength = 0 // reiniciar
+			comp = 0 
 		}
 	}
 
-	// Verifique o segmento atual após o loop
-	if currentLength > maxLength {
-		maxLength = currentLength
+	
+	if comp > maxComp {
+		maxComp = comp
 	}
 
-	return maxLength
+	return maxComp
 }
 
 func main() {
 	var n int
-	fmt.Scan(&n) // Ler o número de elementos na sequência
+	fmt.Scan(&n)
 
-	numbers := make([]int, n)
+	num := make([]int, n)
 	for i := 0; i < n; i++ {
-		fmt.Scan(&numbers[i]) // Ler a sequência de números
+		fmt.Scan(&num[i])
 	}
 
-	maxSegmentLength := maxCrescendoSegment(numbers)
+	maxSegmentoCrescente := maxsegmento(num)
 
-	fmt.Printf("O comprimento do segmento crescente maximo e: %d\n", maxSegmentLength)
+	fmt.Printf("O comprimento do segmento crescente maximo e: %d\n", maxSegmentoCrescente)
 }
 
 
