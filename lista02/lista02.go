@@ -569,9 +569,7 @@ Questão 14
 
 package main
 
-import (
-  "fmt"
-)
+import "fmt"
 
 func main() {
   var m, n int
@@ -606,40 +604,39 @@ Questão 15
 
 package main
 
-import (
-	"fmt"
-	"strconv"
-)
+import "fmt"
 
-// Função para inverter um número inteiro
-func reverseInt(num int) int {
-	str := strconv.Itoa(num) // Converte o número para string
-	revStr := ""
-	for i := len(str) - 1; i >= 0; i-- {
-		revStr += string(str[i]) // Inverte a string
-	}
-	revInt, _ := strconv.Atoi(revStr) // Converte a string invertida de volta para inteiro
-	return revInt
+// Função para reverter a ordem dos caracteres de uma string
+func reverse(s string) string {
+  n := len(s)
+  rev := make([]byte, n)
+  for i := 0; i < n; i++ {
+    rev[n-1-i] = s[i]
+  }
+  return string(rev)
 }
 
 func main() {
-	var T int
-	fmt.Scan(&T) // Ler o número de casos de teste
+  var t int
+  fmt.Scan(&t) // Lê o número de casos de teste
 
-	for i := 0; i < T; i++ {
-		var A, B int
-		fmt.Scan(&A, &B) // Ler os dois números de três dígitos
+  for i := 0; i < t; i++ {
+    var A, B string
+    fmt.Scan(&A, &B) // Lê dois números de três dígitos como strings
 
-		revA := reverseInt(A) // Inverter A
-		revB := reverseInt(B) // Inverter B
+    // Inverte as strings para obter o número "lido ao contrário"
+    Ainv := reverse(A)
+    Binv := reverse(B)
 
-		if revA > revB {
-			fmt.Println(revA) // Se revA for maior, imprime revA
-		} else {
-			fmt.Println(revB) // Se revB for maior, imprime revB
-		}
-	}
+    // Compara as strings invertidas
+    if Ainv > Binv {
+      fmt.Println(Ainv) // Se A invertido for maior, imprime A invertido
+    } else {
+      fmt.Println(Binv) // Se B invertido for maior, imprime B invertido
+    }
+  }
 }
+
 
 
 
