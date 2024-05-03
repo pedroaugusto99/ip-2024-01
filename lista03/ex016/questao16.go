@@ -28,7 +28,7 @@ func main() {
   }
 
   
-  if presentes < K {
+  if presentes <= K {
     fmt.Println("SIM")
   } else {
     fmt.Println("NÃO")
