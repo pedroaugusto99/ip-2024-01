@@ -1,8 +1,6 @@
 package main
 
-import (
-  "fmt"
-)
+import "fmt"
 
 func encontrarMaiorNumero(numero string, d int) string {
   n := len(numero)
